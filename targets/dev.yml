@@ -10,3 +10,6 @@ targets:
     permissions:
       - group_name: Data Engineers
         level: CAN_MANAGE
+    
+    variables:
+      catalog_name: "catalog_dev"
