@@ -1,0 +1,10 @@
+targets:
+
+  prod:
+
+    workspace: 
+      host: https://adb-7405617227505068.8.azuredatabricks.net/
+      
+    permissions:
+      - group_name: Data Engineers
+        level: CAN_VIEW

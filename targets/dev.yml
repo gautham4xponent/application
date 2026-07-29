@@ -1,0 +1,12 @@
+targets:
+
+  dev:
+  
+    default: true
+
+    workspace: 
+      host: https://adb-7405604635590717.17.azuredatabricks.net/
+
+    permissions:
+      - group_name: Data Engineers
+        level: CAN_MANAGE

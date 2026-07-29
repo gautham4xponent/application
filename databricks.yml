@@ -1,0 +1,14 @@
+bundle:
+  name: application
+  uuid: c9bee214-5645-44a6-86aa-a7397e143f01
+
+include:
+  - resources/*.yml
+  - targets/*.yml
+
+workspace:
+  root_path: /Workspace/shared/.bundle/${bundle.name}/${bundle.target}
+
+variables:
+  catalog_name:
+    description: Name of the Unity Catalog to use in each target environment.
