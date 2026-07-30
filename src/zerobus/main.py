@@ -1,7 +1,7 @@
 import time
 import traceback
 from datetime import datetime, timezone
-import argparse
+
 
 from zerobus.sdk.sync import ZerobusSdk
 from zerobus.sdk.shared import (
@@ -11,28 +11,30 @@ from zerobus.sdk.shared import (
 )
 from device_events import generate_events
 
-dbutils.widgets.text("catalog", "")
+ddbutils.widgets.text("catalog", "")
 dbutils.widgets.text("schema", "")
 dbutils.widgets.text("table", "")
 dbutils.widgets.text("server_endpoint", "")
+dbutils.widgets.text("workspace_url", "")
 dbutils.widgets.text("total_records", "")
-dbutils.widgets.text("batch_size")
+dbutils.widgets.text("batch_size", "")
 
 catalog = dbutils.widgets.get("catalog")
 schema = dbutils.widgets.get("schema")
 table = dbutils.widgets.get("table")
 server_endpoint = dbutils.widgets.get("server_endpoint")
+workspace_url = dbutils.widgets.get("workspace_url")
 
 total_records = int(dbutils.widgets.get("total_records"))
 batch_size = int(dbutils.widgets.get("batch_size"))
 
-SERVER_ENDPOINT = args.server_endpoint
-DATABRICKS_WORKSPACE_URL = args.workspace_url
+SERVER_ENDPOINT = server_endpoint
+DATABRICKS_WORKSPACE_URL = workspace_url
 
-TABLE_NAME = f"{args.catalog}.{args.schema}.{args.table}"
+TABLE_NAME = f"{catalog}.{schema}.{table}"
 
-TOTAL_RECORDS = args.total_records
-BATCH_SIZE = args.batch_size
+TOTAL_RECORDS = total_records
+BATCH_SIZE = batch_size
 TOTAL_BATCHES = TOTAL_RECORDS // BATCH_SIZE
 
 CLIENT_ID = dbutils.secrets.get(

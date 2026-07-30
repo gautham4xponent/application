@@ -1,19 +1,15 @@
-CREATE TABLE IF NOT EXISTS Sandbox.Lakshmi.zerobus_device_data
+CREATE TABLE IF NOT EXISTS ${catalog}.${schema}.${table}
 (
     eventId STRING,
-    eventOffset BIGINT,
+    eventOffset LONG,
     eventPublisher STRING,
     customerId STRING,
     data STRUCT<
-        devices ARRAY<STRUCT<
-            deviceId STRING,
-            deviceType STRING,
-            deviceStatus STRING,
-            temperature DOUBLE,
-            batteryLevel DOUBLE
->>
->,
-    eventTime TIMESTAMP,
-    streamStartTime STRING
+        device_id: STRING,
+        device_type: STRING,
+        location: STRING,
+        event_status: STRING
+    >,
+    eventTime TIMESTAMP
 )
 USING DELTA;
