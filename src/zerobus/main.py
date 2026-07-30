@@ -11,7 +11,7 @@ from zerobus.sdk.shared import (
 )
 from device_events import generate_events
 
-ddbutils.widgets.text("catalog", "")
+dbutils.widgets.text("catalog", "")
 dbutils.widgets.text("schema", "")
 dbutils.widgets.text("table", "")
 dbutils.widgets.text("server_endpoint", "")
