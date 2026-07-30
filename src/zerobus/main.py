@@ -11,17 +11,20 @@ from zerobus.sdk.shared import (
 )
 from device_events import generate_events
 
-parser = argparse.ArgumentParser()
+dbutils.widgets.text("catalog", "")
+dbutils.widgets.text("schema", "")
+dbutils.widgets.text("table", "")
+dbutils.widgets.text("server_endpoint", "")
+dbutils.widgets.text("total_records", "")
+dbutils.widgets.text("batch_size")
 
-parser.add_argument("--server_endpoint", required=True)
-parser.add_argument("--workspace_url", required=True)
-parser.add_argument("--catalog", required=True)
-parser.add_argument("--schema", required=True)
-parser.add_argument("--table", required=True)
-parser.add_argument("--total_records", type=int, required=True)
-parser.add_argument("--batch_size", type=int, required=True)
+catalog = dbutils.widgets.get("catalog")
+schema = dbutils.widgets.get("schema")
+table = dbutils.widgets.get("table")
+server_endpoint = dbutils.widgets.get("server_endpoint")
 
-args = parser.parse_args()
+total_records = int(dbutils.widgets.get("total_records"))
+batch_size = int(dbutils.widgets.get("batch_size"))
 
 SERVER_ENDPOINT = args.server_endpoint
 DATABRICKS_WORKSPACE_URL = args.workspace_url
