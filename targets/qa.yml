@@ -11,6 +11,6 @@ targets:
     
     variables:
       catalog_name: "catalog_qa"
-      targets:
+      server_endpoint: "https://4206962778623078.zerobus.eastus.azuredatabricks.net"
 
   
