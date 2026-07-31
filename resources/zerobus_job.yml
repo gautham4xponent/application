@@ -1,0 +1,33 @@
+resources:
+  jobs:
+    ZeroBus_Ingestion:
+      name: ZeroBus_Ingestion
+      tasks:
+        - task_key: create_table
+          notebook_task:
+            notebook_path: ../src/zerobus/create_zerobus_table.sql
+            source: WORKSPACE
+        - task_key: run_zerobus
+          depends_on:
+            - task_key: create_table
+          notebook_task:
+            notebook_path: ../src/zerobus/main.py
+            source: WORKSPACE
+      queue:
+        enabled: true
+      parameters:
+        - name: catalog
+          default: ${var.catalog_name}
+        - name: schema
+          default: lakshmi
+        - name: server_endpoint
+          default: ${var.server_endpoint}
+        - name: table
+          default: zerobus_device_data
+        - name: total_records
+          default: "1000000"
+        - name: batch_size
+          default: "100000"
+        - name: workspace_url
+          default: ${workspace.host}
+      performance_target: PERFORMANCE_OPTIMIZED
