@@ -10,5 +10,8 @@ workspace:
   root_path: /Workspace/shared/.bundle/${bundle.name}/${bundle.target}
 
 variables:
-  catalog_name:
+  catalog_name: 
     description: Name of the Unity Catalog to use in each target environment.
+
+  server_endpoint:
+    description: Zerobus Server endpoint
