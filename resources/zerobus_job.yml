@@ -5,7 +5,7 @@ resources:
       tasks:
         - task_key: create_table
           notebook_task:
-            notebook_path: ../sql/create_zerobus_table.sql
+            notebook_path: ../src/zerobus/create_zerobus_table.sql
             source: WORKSPACE
         - task_key: run_zerobus
           depends_on:
