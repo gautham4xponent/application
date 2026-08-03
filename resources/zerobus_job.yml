@@ -19,9 +19,9 @@ resources:
         - name: catalog
           default: ${var.catalog_name}
         - name: schema
-          default: lakshmi
+          default: bronze
         - name: server_endpoint
-          default: ${var.server_endpoint}
+          default: ${var.zerobus_server_endpoint}
         - name: table
           default: zerobus_device_data
         - name: total_records
