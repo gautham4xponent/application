@@ -1,0 +1,28 @@
+# ====================================================================
+# DATABRICKS FEATURE BUNDLE TEMPLATE
+# Instructions: 
+#   1. Copy this file into the 'features/' directory.
+#   2. Rename it based on your feature (e.g., 'ingestion.yml' or 'zerobus.yml').
+#   3. Uncomment the blocks below and replace the placeholders witht he appropriate variables.
+# ====================================================================
+
+# # 1. Define your job-specific variables and default values
+# variables:
+#   YOUR_VARIABLE_NAME:
+#     description: "Provide a short description of what this variable does"
+#   # ... (add more variables as needed)
+
+# # 2. Define the Target-Specific Overrides for each environment
+# targets:
+#   dev:
+#     variables:
+#       YOUR_VARIABLE_NAME: "dev_value"
+#       # ... (add more variables as needed)
+#   qa:
+#     variables:
+#       YOUR_VARIABLE_NAME: "qa_value"
+#       # ... (add more variables as needed)
+#   prod:
+#     variables:
+#       YOUR_VARIABLE_NAME: "prod_value"
+#       # ... (add more variables as needed)
