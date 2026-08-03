@@ -4,6 +4,7 @@
 #   1. Copy this file into the 'features/' directory.
 #   2. Rename it based on your feature (e.g., 'ingestion.yml' or 'zerobus.yml').
 #   3. Uncomment the blocks below and replace the placeholders witht he appropriate variables.
+#   4. Prefix the variable names with your feature name to avoid conflicts with other features. (e.g., 'zerobus_server_endpoint' instead of 'server_endpoint').
 # ====================================================================
 
 # # 1. Define your job-specific variables and default values

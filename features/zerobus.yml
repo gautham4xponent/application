@@ -1,16 +1,16 @@
 # 1. Define your job-specific variables and default values
 variables:
-  server_endpoint:
+  zerobus_server_endpoint:
     description: Zerobus Server endpoint
 
 # 2. Define the Target-Specific Overrides for each environment
 targets:
   dev:
     variables:
-      server_endpoint: "https://4206962778623078.zerobus.eastus.azuredatabricks.net"
+      zerobus_server_endpoint: "https://4206962778623078.zerobus.eastus.azuredatabricks.net"
   qa:
     variables:
-      server_endpoint: "https://4206962778623078.zerobus.eastus.azuredatabricks.net"
+      zerobus_server_endpoint: "https://4206962778623078.zerobus.eastus.azuredatabricks.net"
   prod:
     variables:
-      server_endpoint: "https://4206962778623078.zerobus.eastus.azuredatabricks.net"
+      zerobus_server_endpoint: "https://4206962778623078.zerobus.eastus.azuredatabricks.net"
