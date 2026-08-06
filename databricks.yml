@@ -10,44 +10,47 @@ workspace:
   root_path: /Workspace/shared/.bundle/${bundle.name}/${bundle.target}
 
 variables:
-  catalog_name: 
+  catalog_name:
     description: Name of the Unity Catalog to use in each target environment.
+
+  cluster_id:
+    description: Existing Databricks Cluster ID.
 
 targets:
 
   dev:
     default: true
 
-    workspace: 
+    workspace:
       host: https://adb-7405604635590717.17.azuredatabricks.net/
 
     permissions:
       - group_name: Data Engineers
         level: CAN_MANAGE
-    
+
     variables:
       catalog_name: "catalog_dev"
 
   qa:
 
-    workspace: 
+    workspace:
       host: https://adb-7405614680302086.6.azuredatabricks.net/
-    
+
     permissions:
       - group_name: Data Engineers
         level: CAN_RUN
-        
+
     variables:
       catalog_name: "catalog_qa"
 
   prod:
 
-    workspace: 
+    workspace:
       host: https://adb-7405617227505068.8.azuredatabricks.net/
-      
+
     permissions:
       - group_name: Data Engineers
         level: CAN_VIEW
-    
+
     variables:
       catalog_name: "catalog_prod"

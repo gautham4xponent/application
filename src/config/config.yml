@@ -1,0 +1,21 @@
+mongodb:
+  database: ecommerce
+  collection: orders
+  watermark_column: updated_at
+
+schemas:
+  bronze: sandbox.mongodb_bronze
+  silver: sandbox.mongodb_silver
+
+gold:
+  product_sales_summary: sandbox.mongodb_gold.product_sales_summary
+  customer_sales_summary: sandbox.mongodb_gold.customer_sales_summary
+  daily_sales_summary: sandbox.mongodb_gold.daily_sales_summary
+  order_status_summary: sandbox.mongodb_gold.order_status_summary
+  sales_summary: sandbox.mongodb_gold.sales_summary
+
+streaming:
+  checkpoint_location: dbfs:/checkpoints/mongodb/bronze
+  silver_checkpoint_location: dbfs:/checkpoints/mongodb/silver
+  gold_checkpoint_location: dbfs:/checkpoints/mongodb/gold
+  trigger_interval: "10 seconds"
