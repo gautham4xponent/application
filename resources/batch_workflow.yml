@@ -1,0 +1,33 @@
+resources:
+  jobs:
+    mongodb_batch_pipeline:
+      name: mongodb_batch_pipeline
+
+      tasks:
+
+        - task_key: batch_bronze
+
+          notebook_task:
+            notebook_path: ../src/bronze/batch_bronze
+
+          existing_cluster_id: ${var.cluster_id}
+
+        - task_key: batch_silver
+
+          depends_on:
+            - task_key: batch_bronze
+
+          notebook_task:
+            notebook_path: ../src/silver/batch_silver
+
+          existing_cluster_id: ${var.cluster_id}
+
+        - task_key: batch_gold
+
+          depends_on:
+            - task_key: batch_silver
+
+          notebook_task:
+            notebook_path: ../src/gold/batch_gold
+
+          existing_cluster_id: ${var.cluster_id}

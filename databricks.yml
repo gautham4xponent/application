@@ -1,0 +1,7 @@
+variables:
+
+  catalog_name:
+    description: Name of the Unity Catalog.
+
+  cluster_id:
+    description: Existing Databricks Cluster ID.

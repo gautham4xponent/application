@@ -1,0 +1,42 @@
+resources:
+  jobs:
+    mongodb_streaming_pipeline:
+      name: mongodb_streaming_pipeline
+
+      tasks:
+        - task_key: streaming_bronze
+
+          notebook_task:
+            notebook_path: ../src/bronze/streaming_bronze
+
+          job_cluster_key: streaming_cluster
+
+        - task_key: streaming_silver
+
+          depends_on:
+            - task_key: streaming_bronze
+
+          notebook_task:
+            notebook_path: ../src/silver/streaming_silver
+
+          job_cluster_key: streaming_cluster
+
+        - task_key: streaming_gold
+
+          depends_on:
+            - task_key: streaming_silver
+
+          notebook_task:
+            notebook_path: ../src/gold/streaming_gold
+
+          job_cluster_key: streaming_cluster
+
+      job_clusters:
+        - job_cluster_key: streaming_cluster
+
+          new_cluster:
+            spark_version: 15.4.x-scala2.12
+            node_type_id: Standard_DS3_v2
+            num_workers: 2
+            runtime_engine: PHOTON
+            data_security_mode: SINGLE_USER
